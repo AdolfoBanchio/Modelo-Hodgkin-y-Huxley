@@ -79,7 +79,7 @@
 \email{adolfo.banchio@mi.unc.edu.ar}
 
 \author{Alejandro Matias Toledo}
-\email{amtoledo@mi.unc.edu.ar}
+\email{amtoledo2002@mi.unc.edu.ar}
 
 \affiliation{Facultad de Matemática, Astronomía, Física y Computación, Universidad
 Nacional de Córdoba}
@@ -95,18 +95,17 @@ los mecanismos fundamentales de la excitación neuronal y su propagación.
 \end{abstract}
 \maketitle
 
-\section{INTRODUCCION}
+\section{INTRODUCCIÓN}
 
 Las neuronas son las células encargadas de transmitir la información
-en organismos complejos a través de señales electricas, estos mensajes
+en organismos complejos a través de señales eléctricas, estos mensajes
 se conocen como el potencial de acción. Nace en la propia neurona
 y se va propagando de una a otra hasta alcanzar el destino objetivo,
 este sera nuestro objeto de estudio para este trabajo. Lo estudiaremos
 a partir del modelo propuesto por Hodgking y Huxley en el año 1952
-realizando simulaciones numericas del sistema, con el objetivo de
-estudiar la celula desde un punto de vista de un sistema dinamico.
-Buscaremos contestar preguntas como <<¿Que hace disparar una neurona?>>
-o <<¿Cual es el umbral?>>~\cite{HodgkinHuxleyModel}~\cite{izhikevich2006}
+realizando simulaciones numéricas del sistema, con el objetivo de
+estudiar la célula desde un punto de vista de un sistema dinámico.
+Buscaremos contestar preguntas como <<¿Que hace disparar una neurona?>>.~\cite{HodgkinHuxleyModel}~\cite{izhikevich2006}
 
 \section{TEORÍA}
 
@@ -115,7 +114,7 @@ la neurona como capacitores donde la diferencia de potencial eléctrico
 entre el exterior y el interior se da debido a diferentes concentraciones
 de cargas iónicas. Considerando que las neuronas poseen dos canales,
 uno de sodio con dos compuertas (entrada y salida) y otro de potasio
-con una única compuerta. El sistema puede ser descripto por las siguientes
+con una única compuerta. El sistema puede ser descrito por las siguientes
 ecuaciones diferenciales. {\small\begin{eqnarray*}
 \dot{n}&=&\alpha_n(v)(1-n)-\beta_n(v) n\\
 \dot{m}&=&\alpha_m(v)(1-m)-\beta_m(v) m\\
@@ -123,194 +122,114 @@ ecuaciones diferenciales. {\small\begin{eqnarray*}
 \dot{v}&=&c^{-1}(i-\bar{g}_{\mathrm{Na}}m^3h(v-v_{\mathrm{Na}})-\bar{g}_{\mathrm{K}}n^4(v-v_{\mathrm{K}})-g_{l}(v-v_{l}))
 \end{eqnarray*}}{\small\par}
 
-Donde n representa la fraccion de compuertas de potasio abiertas,
-m la fraccion de compuertas de activación de sodio abiertas y h la
-fraccion de compuertas de inactivación abiertas. Para cada caso $\alpha_{k}$
+Donde n representa la fracción de compuertas de potasio abiertas,
+m la fracción de compuertas de activación de sodio abiertas y h la
+fracción de compuertas de inactivación abiertas. Para cada caso $\alpha_{k}$
 y $\beta_{k}$ representan la tasa de apertura y clausura de cada
-tipo de compuerta respectivamente;v representa el potencial electrico
+tipo de compuerta respectivamente;v representa el potencial eléctrico
 de la membrana neuronal e i la corriente externa que estimula a la
-neurona. Las ecuaciones y valores de los parametros estan desarrollados
+neurona. Las ecuaciones y valores de los parámetros están desarrollados
 en ~\cite{izhikevich2006}.
 
-En este trabajo integraremos numericamente dichas ecuaciones en pos
+En este trabajo integraremos numéricamente dichas ecuaciones en pos
 de poder representar el comportamiento del sistema bajo el estimulo
 de diferentes corrientes externas. 
 
 \section{RESULTADOS}
 
-El primero de los analisis realizados fue encontrar los valores de
-equilibrio de las cuatro variables involucradas en nuestro sistema.
-Para ello integramos numericamente partiendo desde una condicion inicial
-de 0 para cada variable. ver fig.~\ref{fig:fig1} a. En general los
-siguientes escenarios simulados partiran desde la condicion inicial
-de los valores de equilibrio y variaran la funcion que representa
-la corriente externa del sistema.
+El primero de los análisis realizados fue el de encontrar los valores de
+equilibrio de las cuatro variables involucradas en nuestro sistema (v, m, n, h).
+Para ello integramos numéricamente partiendo desde una condición inicial
+de 0 para cada variable. ver fig.~\ref{fig:fig1}. 
 
-\subsection{Estimulo debil y estimulo fuerte}
+\begin{figure}[hb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Informe/graficos/ejercicio_3.png}
+    \caption{Caption}
+    \label{fig:fig1}
+\end{figure}
 
-La corriente externa introducida en este escenario estaba representada
-por la siguiente funcion:
+En general los siguientes escenarios simulados partirán desde la condición inicial de los valores de equilibrio y variaran la función que representa la corriente externa del sistema.
 
-$i(t)=\begin{cases}
-10\mu A/cm^{2} & t\in[2ms,2.5ms]\\
-30\mu A/cm^{2} & t\in[10ms,10.5ms]\\
-0 & c.c
-\end{cases}$
+\subsection{Estimulo débil y estimulo fuerte}
 
-Los resultados obtenidos se pueden ver en el siguiente grafico.~\ref{fig:fig1} b
-Podemos notar que en el primer impulso, en t=2ms, se produce un estimulo
-debil que no es suficiente para que la neurona se active. En cambio,
-en el segundo impulso, en t=10ms, se produce un estimulo mas potente
-que se observa que es suficiente para que la neurona se active y dispare. 
+Los estímulos aplicados a la neurona para este experimento fueron de (\(10\mu A /cm^2\)) y (\(30\mu A /cm^2\)) con una duración de \(0.5ms\) espaciados por (\(8ms\)).
 
-Ahora bien, con respecto a las compuertas, observamos que en el impulso
-de t=2ms la fraccion de canales de sodio activados m y la fracción
-de canales de sodio inactivados h se activan y desactivan rápidamente,
-respectivamente, en cambio, la fracción de canales de potasio activados
-n se activa lentamente. Todas las compuertas vuelven en poco tiempo
-a su estado inicial. 
+En la figura ~\ref{fig:fig2} podemos notar que en el primer impulso, en t=2ms, se produce un estimulo débil que no es suficiente para que la neurona se active. En cambio,
+en el segundo impulso, el estimulo es suficiente para que la neurona dispare. 
+Observando el comportamiento de las compuertas en el primer impulso, la fracción de compuertas de sodio activadas (m) aumenta y la fracción de compuertas de inactivación (h) disminuye, en cambio, la fracción de compuertas de potasio activados (n) aumenta lentamente. Todas las compuertas intentan volver a su estado de equilibrio.
 
-Luego, en el impulso de t=10ms, la fracción de canales de sodio activados
-m y la fracción de canales de sodio inactivados h se activan y desactivan
-rápidamente, respectivamente. Y la fracción de canales de potasio
-activados n se activa en menor escala, pero se mantiene activada por
-un tiempo mas prolongado ya que el estimulo es mas potente, que provoca
-que la neurona se active y dispare, una vez que el estimulo pasa,
-las compuertas vuelven a su estado inicial, en un tiempo menor pero
-cercano al periodo refractario.
+En el siguiente impulso ocurre un disparo, por lo que la fracción de compuertas n,m y h  se comporta de manera esperada durante la ocurrencia de un potencial de acción. Y luego vuelven a sus valores de equilibrio.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.90\linewidth]{Informe/graficos/ejercicio_4.png}
+    \caption{Caption}
+    \label{fig:fig2}
+\end{figure}
 
 \subsection{Ráfaga}
 
-La corriente externa se daba por:
+Aplicamos un estimulo constante (\(10\mu A /cm^2\)) transcurridos 5ms. En la figura ~\ref{fig:fig3} observamos que la neurona responde generando una serie de potenciales de acción repetidos a partir del primer tiempo de estimulo (\(5ms\)). 
 
-$i(t)=\begin{cases}
-10\mu A/cm^{2} & t\in[5ms,\infty ms]\\
-0 & c.c.
-\end{cases}$
-
-Resultados ~\ref{fig:fig2}. Podemos observar que la neurona se activa
-y dispara en el tiempo de estimulo (a partir de t=5ms), y luego se
-mantiene en un estado de rafaga, ya que el estimulo es constante. 
-
-En cuanto a las compuertas, una vez iniciado el sistema, tienden a
-su estado de equilibrio, tambien observamos que la fracción de canales
-de sodio activados y la fracción de canales de sodio inactivados se
-abren y cierran rápidamente, respectivamente, en cambio, la fracción
-de canales de potasio activados n se abren lentamente.
-
-Una vez disparado (ya que el estimulo es suficiente para que la neurona
-dispare), las compuertas tienden a volver a su estado inicial, pero
-como es un estimulo constante, una vez pasado el periodo refractario,
-la neurona vuelve a disparar, repitiendo nuevamente el proceso antes
-descripto.
+Al tener un estimulo constante vemos que las compuertas responden de manera mas lenta a diferencia de cuando luego de un potencial de acción no existen mas estímulos (ver fig~\ref{fig:fig2}). Hasta que finaliza el periodo refractario y la neurona vuelve a disparar.
 
 \subsection{Período Refractario}
+En este escenario, se aplicó un estímulo intermitente, con una duración de 2
+ms cada 10 ms, dada por la siguiente función para la corriente externa.
 
-La corriente externa se da por:
-\begin{flushleft}
-$i(t)=\begin{cases}
+$\small
+i(t)=\begin{cases}
 10\mu A/cm^{2} & t\in[10ms,10ms\:k+2],k\in\{1,2,3,4,..\}\\
 0 & c.c.
 \end{cases}$
-\par\end{flushleft}
+\par 
 
-Ver resultados~\ref{fig:fig3}. En este caso podemos observar que
-la corriente no es continua como el caso anterior, sino que el estimulo
-se produce en intervalos de tiempo de 2ms, y luego se mantiene en
-8ms sin estimulo. En el primer estimulo, sucede un potencial de acción,
-causando los efectos sobre las compuertas ya conocidas. Luego observamos
-que en el periodo refractario luego de la activación, la neurona es
-incapaz de generar otro potencial de acción, incluso si recibe un
-estímulo. 
+La neurona disparó durante el primer estímulo, pero en el siguiente estimulo no fue capaz de generar otro potencial de acción. Esto puede verse reflejado en la figura ~\ref{fig:fig4}.
+Ahora bien, esto sucede ya que luego de cada disparo la neurona mantiene las compuertas iónicas, 
+especialmente las de sodio, inactivas, imposibilitando un nuevo disparo, 
+a esto es lo que denominamos un periodo refractario. 
+A medida que se recuperan las compuertas activas, el estímulo puede generar un nuevo potencial de acción si es suficientemente fuerte.
+En este caso de estudio, un estimulo cada 10ms no es suficiente para que el periodo refractario cese, por lo que surge este comportamiento observado, de que un estimo provoca un potencial de acción y el siguiente no (ya que se encuentra dentro en el periodo refractario del anterior estimulo).
 
-Observamos que durante el período refractario, la compuerta h permanece
-cerrada durante la despolarización. Esto significa que los canales
-de sodio no se pueden abrir, impidiendo el aumento del potencial.
-La compuerta n, por otro lado, puede estar abierta o cerrada, dependiendo
-de la fase del período refractario:
-\begin{itemize}
-\item Período refractario absoluto: Todas las compuertas h están cerradas,
-imposibilitando completamente la generación de un nuevo potencial
-de acción.
-\item Período refractario relativo: Algunas compuertas h comienzan a abrirse,
-por lo que es posible generar un potencial de acción si el estímulo
-es lo suficientemente fuerte para superar la hiperpolarización causada
-por el flujo de iones de potasio a través de las compuertas n abiertas.
-\end{itemize}
-Analizando los graficos de sodio y potasio,durante el periodo refractario,
-la cantidad de sodio dentro de la neurona disminuye luego del pico
-del potencial de acción. Esto se debe a que, tras la despolarización,
-la compuerta h se cierra, impidiendo la entrada de más iones de sodio.
-Aunque un estímulo débil pueda causar una pequeña despolarización
-local, no será suficiente para abrir las compuertas m de los canales
-de sodio, por lo que no habrá un flujo masivo de sodio hacia el interior
-de la neurona
+\subsection{Excitaciones con ruido}
 
-La cantidad de potasio dentro de la neurona durante el periodo refractario
-es menor que en reposo. La apertura de las compuertas n durante la
-fase descendente del potencial de acción permite la salida de iones
-de potasio, contribuyendo a la repolarización e incluso a la hiperpolarización.
-Un estímulo débil durante el periodo refractario no alterará significativamente
-este flujo de potasio, ya que la mayoría de las compuertas n ya estarán
-abiertas o en proceso de abrirse.
-
-En este caso, podemos observar que el estimulo no es lo suficientemente
-fuerte para que la neurona genere un potencial de acción en el período
-refractario. 
-
-En resumen, el período refractario es una consecuencia directa del
-comportamiento de las compuertas iónicas, especialmente el cierre
-de la compuerta h, que impide la apertura de los canales de sodio
-y la generación de un nuevo potencial de acción. Este mecanismo asegura
-que los potenciales de acción se propaguen en una sola dirección y
-limita la frecuencia máxima de disparo de la neurona.
-
-\subsection{Exitaciones con ruido}
-
-En este caso la corriente es estocastica tal que $i(t)\sim i_{0}N(0,1)$
+En este caso la corriente es estocástica tal que $i(t)\sim i_{0}N(0,1)$
 donde establecemos $i_{0}=50$. Y los resultados obtenidos para este
-caso se ven en fig ~\ref{fig:fig4}. 
+caso se ven en fig ~\ref{fig:fig5}. 
 
-bla bla bla analissis analisis
+Este tipo de comportamiento intenta reflejar una situación mas realista, ya que las neuronas no reciben estímulos constantes ni en ráfaga, sino que responden a estímulos que varían según el entorno planteado. 
+Podemos observar que la neurona responde de la misma manera a los casos planteados anteriormente.
+Solamente genera un potencial de acción cuando el estimo corresponde a una corriente lo suficientemente potente para que la neurona dispare.
 
 \section{DISCUSIÓN}
 
 \section{CONCLUSIONES}
+
+A pesar de la variabilidad, el modelo neuronal sigue siendo capaz de responder de manera coherente, 
+mostrando el robusto diseño del sistema Hodgkin-Huxley.
 
 \section{AGRADECIMIENTOS}
 
 \bibliographystyle{apsrev4-2}
 \bibliography{ref}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{graficos/ejercicio_3.png}
-  \put(-240,140){\bf a)}
-  \includegraphics[width=0.5\textwidth]{graficos/ejercicio_4.png}
-  \put(-240,140){\bf b)}
-  \caption{
-    \label{fig:fig1}
-    Comparación entre dos imágenes. \\
-    {\bf a)} Descripción de la primera imagen.
-    {\bf b)} Descripción de la segunda imagen.
-  }
-\end{figure}
-
-\begin{figure}[htbp]
+\begin{figure}[b]
   \centering
   \includegraphics[width=0.90\textwidth]{graficos/ejercicio_5.png}
-  \caption{Gráfico 1: Nombre o descripción del gráfico 5.}
-  \label{fig:fig2}
+  \caption{Gráfico correspondiente al caso de ráfaga. Frente a un estimulo se representan el valor de el potencial de la membrana y los valores de las fracciones de las compuertas.}
+  \label{fig:fig3}
 
   \includegraphics[width=0.90\textwidth]{graficos/ejercicio_6.png}
-  \caption{Gráfico 1: Nombre o descripción del gráfico 6.}
-  \label{fig:fig3}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{graficos/ejercicio_7.png}
-  \caption{Gráfico 1: Nombre o descripción del gráfico 7.}
+  \caption{Gráfico correspondiente al caso de periodo refractario. Frente a un estimulo se representan el valor de el potencial de la membrana y los valores de las fracciones de las compuertas.}
   \label{fig:fig4}
 \end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Informe/graficos/ejercicio_7.png}
+    \caption{Gráfico correspondiente al caso de excitaciones con ruido. Frente a un estimulo se representan el valor de el potencial de la membrana y los valores de las fracciones de las compuertas.}
+    \label{fig:fig5}
+\end{figure}
+
 \end{document}
