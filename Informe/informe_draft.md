@@ -1,8 +1,11 @@
-# Abstract
+# El modelo de Hodgkin & Huxley
 
-Bla bla bla
+## Abstract
+
 
 ## Introduccion
+
+La 
 
 ## Teoria
 
@@ -35,7 +38,6 @@ Para este trabajo buscamos analizar la dinamica del modelo de Hodgkin & Huxley e
 ## Resultados
 
 ### Estimulo debil y estimulo fuerte
-
 
 ## Discusion
 

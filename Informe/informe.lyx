@@ -1,0 +1,972 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-2
+\begin_preamble
+\usepackage{graphicx}
+\usepackage{epstopdf}
+%\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{subfigure}
+%\usepackage{hhline}
+%\usepackage[miktex]{gnuplottex}
+%\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{hyperref}
+%\usepackage[percent]{overpic}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{wasysym}
+\usepackage{tikz-cd}
+%\usepackage{stix} %\fisheye
+\usepackage{stackengine,scalerel}
+
+% so sections, subsections, etc. become numerated.
+\setcounter{secnumdepth}{3}
+
+\newcommand{\avrg}[1]{\left\langle #1 \right\rangle}
+\newcommand{\nelta}{\bar{\delta}}
+\newcommand{\bra}[1]{\left\langle #1\right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\sbra}[1]{\langle #1|}
+\newcommand{\sket}[1]{| #1 \rangle}
+\newcommand{\bek}[3]{\left\langle #1 \right| #2 \left| #3 \right\rangle}
+\newcommand{\sbek}[3]{\langle #1 | #2 | #3 \rangle}
+\newcommand{\braket}[2]{\left\langle #1 \middle| #2 \right\rangle}
+\newcommand{\ketbra}[2]{\left| #1 \middle\rangle \middle\langle #2  \right|}
+\newcommand{\sbraket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\sketbra}[2]{| #1 \rangle  \langle #2 |}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\snorm}[1]{\lVert#1\rVert}
+\newcommand{\bvec}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\bcov}[1]{\boldsymbol{#1}}
+\newcommand{\bdua}[1]{\boldsymbol{\check{#1}}}
+%\newcommand{\bdov}[1]{\boldsymbol{\breve{#1}}}
+\newcommand{\bdov}[1]{\breve{#1}}
+%\newcommand{\bten}[1]{\boldsymbol{\mathfrak{#1}}}
+\newcommand{\bten}[1]{\boldsymbol{\mathfrak{#1}}}
+\newcommand{\forany}{\tilde{\forall}}
+\newcommand{\qed}{$\overset{\circ}{.}\;$}
+
+\newcommand\bigeye{\ensurestackMath{\stackinset{c}{}{c}{-.3pt}%
+  {\bullet}{\scriptstyle\bigcirc}}}
+\newcommand\eye{\scalerel*{\bigeye}{x}}
+%\newcommand*{\fisheye}{%
+%    \mathbin{%
+%        \ooalign{$\circledcirc$\cr\hidewidth$\bullet$\hidewidth}%
+%    }%
+%}
+\renewcommand{\appendixname}{Apéndice} % Change "Appendix" to "Apéndice"
+\renewcommand{\fnum@figure}{Fig.~\thefigure} 
+\end_preamble
+\options aps,prl,groupedaddress
+\use_default_options true
+\maintain_unincluded_children no
+\language spanish-mexico
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement !p
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Modelo Hodgkin & Huxley
+\end_layout
+
+\begin_layout Author
+Adolfo Banchio
+\end_layout
+
+\begin_layout Author Email
+
+adolfo.banchio@mi.unc.edu.ar
+\end_layout
+
+\begin_layout Author
+Alejandro Matias Toledo
+\end_layout
+
+\begin_layout Author Email
+
+amtoledo@mi.unc.edu.ar
+\end_layout
+
+\begin_layout Affiliation
+Facultad de Matemática,
+ Astronomía,
+ Física y Computación,
+ Universidad Nacional de Córdoba
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+En este trabajo se estudia el comportamiento de una neurona desde un enfoque teórico,
+ utilizando el modelo matemático de Hodgkin y Huxley.
+ Este modelo describe la propagación del potencial de acción a partir del funcionamiento de los canales iónicos en la membrana neuronal.
+ Se realizaron simulaciones numéricas del modelo para analizar propiedades clave del potencial de acción.
+ Este trabajo es importante para comprender los mecanismos fundamentales de la excitación neuronal y su propagación.
+\end_layout
+
+\begin_layout Section
+INTRODUCCION
+\end_layout
+
+\begin_layout Standard
+Las neuronas son las células encargadas de transmitir la información en organismos complejos a través de señales electricas,
+ estos mensajes se conocen como el potencial de acción.
+ Nace en la propia neurona y se va propagando de una a otra hasta alcanzar el destino objetivo,
+ este sera nuestro objeto de estudio para este trabajo.
+ Lo estudiaremos a partir del modelo propuesto por Hodgking y Huxley en el año 1952 realizando simulaciones numericas del sistema,
+ con el objetivo de estudiar la celula desde un punto de vista de un sistema dinamico.
+ Buscaremos contestar preguntas como 
+\begin_inset Quotes fld
+\end_inset
+
+¿Que hace disparar una neurona?
+\begin_inset Quotes frd
+\end_inset
+
+ o 
+\begin_inset Quotes fld
+\end_inset
+
+¿Cual es el umbral?
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+cite{HodgkinHuxleyModel}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+cite{izhikevich2006}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+TEORÍA
+\end_layout
+
+\begin_layout Standard
+El modelo de H&H propuesto trata de explicar el funcionamiento de la neurona como capacitores donde la diferencia de potencial eléctrico entre el exterior y el interior se da debido a diferentes concentraciones de cargas iónicas.
+ Considerando que las neuronas poseen dos canales,
+ uno de sodio con dos compuertas (entrada y salida) y otro de potasio con una única compuerta.
+ El sistema puede ser descripto por las siguientes ecuaciones diferenciales.
+ 
+\size small
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{eqnarray*}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dot{n}&=&
+\backslash
+alpha_n(v)(1-n)-
+\backslash
+beta_n(v) n
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dot{m}&=&
+\backslash
+alpha_m(v)(1-m)-
+\backslash
+beta_m(v) m
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dot{h}&=&
+\backslash
+alpha_h(v)(1-h)-
+\backslash
+beta_h(v) h 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+dot{v}&=&c^{-1}(i-
+\backslash
+bar{g}_{
+\backslash
+mathrm{Na}}m^3h(v-v_{
+\backslash
+mathrm{Na}})-
+\backslash
+bar{g}_{
+\backslash
+mathrm{K}}n^4(v-v_{
+\backslash
+mathrm{K}})-g_{l}(v-v_{l}))
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{eqnarray*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde n representa la fraccion de compuertas de potasio abiertas,
+ m la fraccion de compuertas de activación de sodio abiertas y h la fraccion de compuertas de inactivación abiertas.
+ Para cada caso 
+\begin_inset Formula $\alpha_{k}$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta_{k}$
+\end_inset
+
+ representan la tasa de apertura y clausura de cada tipo de compuerta respectivamente;
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+v
+\end_layout
+
+\end_inset
+
+ representa el potencial electrico de la membrana neuronal e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+i
+\end_layout
+
+\end_inset
+
+ la corriente externa que estimula a la neurona.
+ Las ecuaciones y valores de los parametros estan desarrollados en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+cite{izhikevich2006}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En este trabajo integraremos numericamente dichas ecuaciones en pos de poder representar el comportamiento del sistema bajo el estimulo de diferentes corrientes externas.
+ 
+\end_layout
+
+\begin_layout Section
+RESULTADOS
+\end_layout
+
+\begin_layout Standard
+El primero de los analisis realizados fue encontrar los valores de equilibrio de las cuatro variables involucradas en nuestro sistema.
+ Para ello integramos numericamente partiendo desde una condicion inicial de 0 para cada variable.
+ ver fig.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+ref{fig:fig1} a
+\end_layout
+
+\end_inset
+
+.
+ En general los siguientes escenarios simulados partiran desde la condicion inicial de los valores de equilibrio y variaran la funcion que representa la corriente externa del sistema.
+\end_layout
+
+\begin_layout Subsection
+Estimulo debil y estimulo fuerte
+\end_layout
+
+\begin_layout Standard
+La corriente externa introducida en este escenario estaba representada por la siguiente funcion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $i(t)=\begin{cases}
+10\mu A/cm^{2} & t\in[2ms,2.5ms]\\
+30\mu A/cm^{2} & t\in[10ms,10.5ms]\\
+0 & c.c
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos se pueden ver en el siguiente grafico.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+ref{fig:fig1} b
+\end_layout
+
+\end_inset
+
+ Podemos notar que en el primer impulso,
+ en t=2ms,
+ se produce un estimulo debil que no es suficiente para que la neurona se active.
+ En cambio,
+ en el segundo impulso,
+ en t=10ms,
+ se produce un estimulo mas potente que se observa que es suficiente para que la neurona se active y dispare.
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora bien,
+ con respecto a las compuertas,
+ observamos que en el impulso de t=2ms la fraccion de canales de sodio activados m y la fracción de canales de sodio inactivados h se activan y desactivan rápidamente,
+ respectivamente,
+ en cambio,
+ la fracción de canales de potasio activados n se activa lentamente.
+ Todas las compuertas vuelven en poco tiempo a su estado inicial.
+ 
+\end_layout
+
+\begin_layout Standard
+Luego,
+ en el impulso de t=10ms,
+ la fracción de canales de sodio activados m y la fracción de canales de sodio inactivados h se activan y desactivan rápidamente,
+ respectivamente.
+ Y la fracción de canales de potasio activados n se activa en menor escala,
+ pero se mantiene activada por un tiempo mas prolongado ya que el estimulo es mas potente,
+ que provoca que la neurona se active y dispare,
+ una vez que el estimulo pasa,
+ las compuertas vuelven a su estado inicial,
+ en un tiempo menor pero cercano al periodo refractario.
+\end_layout
+
+\begin_layout Subsection
+Ráfaga
+\end_layout
+
+\begin_layout Standard
+La corriente externa se daba por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $i(t)=\begin{cases}
+10\mu A/cm^{2} & t\in[5ms,\infty ms]\\
+0 & c.c.
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Resultados 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+ref{fig:fig2}
+\end_layout
+
+\end_inset
+
+.
+ Podemos observar que la neurona se activa y dispara en el tiempo de estimulo (a partir de t=5ms),
+ y luego se mantiene en un estado de rafaga,
+ ya que el estimulo es constante.
+ 
+\end_layout
+
+\begin_layout Standard
+En cuanto a las compuertas,
+ una vez iniciado el sistema,
+ tienden a su estado de equilibrio,
+ tambien observamos que la fracción de canales de sodio activados y la fracción de canales de sodio inactivados se abren y cierran rápidamente,
+ respectivamente,
+ en cambio,
+ la fracción de canales de potasio activados n se abren lentamente.
+\end_layout
+
+\begin_layout Standard
+Una vez disparado (ya que el estimulo es suficiente para que la neurona dispare),
+ las compuertas tienden a volver a su estado inicial,
+ pero como es un estimulo constante,
+ una vez pasado el periodo refractario,
+ la neurona vuelve a disparar,
+ repitiendo nuevamente el proceso antes descripto.
+\end_layout
+
+\begin_layout Subsection
+Período Refractario
+\end_layout
+
+\begin_layout Standard
+La corriente externa se da por:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula $i(t)=\begin{cases}
+10\mu A/cm^{2} & t\in[10ms,10ms\:k+2],k\in\{1,2,3,4,..\}\\
+0 & c.c.
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ver resultados
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+ref{fig:fig3}
+\end_layout
+
+\end_inset
+
+.
+ En este caso podemos observar que la corriente no es continua como el caso anterior,
+ sino que el estimulo se produce en intervalos de tiempo de 2ms,
+ y luego se mantiene en 8ms sin estimulo.
+ En el primer estimulo,
+ sucede un potencial de acción,
+ causando los efectos sobre las compuertas ya conocidas.
+ Luego observamos que en el periodo refractario luego de la activación,
+ la neurona es incapaz de generar otro potencial de acción,
+ incluso si recibe un estímulo.
+ 
+\end_layout
+
+\begin_layout Standard
+Observamos que durante el período refractario,
+ la compuerta h permanece cerrada durante la despolarización.
+ Esto significa que los canales de sodio no se pueden abrir,
+ impidiendo el aumento del potencial.
+ La compuerta n,
+ por otro lado,
+ puede estar abierta o cerrada,
+ dependiendo de la fase del período refractario:
+\end_layout
+
+\begin_layout Itemize
+Período refractario absoluto:
+ Todas las compuertas h están cerradas,
+ imposibilitando completamente la generación de un nuevo potencial de acción.
+\end_layout
+
+\begin_layout Itemize
+Período refractario relativo:
+ Algunas compuertas h comienzan a abrirse,
+ por lo que es posible generar un potencial de acción si el estímulo es lo suficientemente fuerte para superar la hiperpolarización causada por el flujo de iones de potasio a través de las compuertas n abiertas.
+\end_layout
+
+\begin_layout Standard
+Analizando los graficos de sodio y potasio,durante el periodo refractario,
+ la cantidad de sodio dentro de la neurona disminuye luego del pico del potencial de acción.
+ Esto se debe a que,
+ tras la despolarización,
+ la compuerta h se cierra,
+ impidiendo la entrada de más iones de sodio.
+ Aunque un estímulo débil pueda causar una pequeña despolarización local,
+ no será suficiente para abrir las compuertas m de los canales de sodio,
+ por lo que no habrá un flujo masivo de sodio hacia el interior de la neurona
+\end_layout
+
+\begin_layout Standard
+La cantidad de potasio dentro de la neurona durante el periodo refractario es menor que en reposo.
+ La apertura de las compuertas n durante la fase descendente del potencial de acción permite la salida de iones de potasio,
+ contribuyendo a la repolarización e incluso a la hiperpolarización.
+ Un estímulo débil durante el periodo refractario no alterará significativamente este flujo de potasio,
+ ya que la mayoría de las compuertas n ya estarán abiertas o en proceso de abrirse.
+\end_layout
+
+\begin_layout Standard
+En este caso,
+ podemos observar que el estimulo no es lo suficientemente fuerte para que la neurona genere un potencial de acción en el período refractario.
+ 
+\end_layout
+
+\begin_layout Standard
+En resumen,
+ el período refractario es una consecuencia directa del comportamiento de las compuertas iónicas,
+ especialmente el cierre de la compuerta h,
+ que impide la apertura de los canales de sodio y la generación de un nuevo potencial de acción.
+ Este mecanismo asegura que los potenciales de acción se propaguen en una sola dirección y limita la frecuencia máxima de disparo de la neurona.
+\end_layout
+
+\begin_layout Subsection
+Exitaciones con ruido
+\end_layout
+
+\begin_layout Standard
+En este caso la corriente es estocastica tal que 
+\begin_inset Formula $i(t)\sim i_{0}N(0,1)$
+\end_inset
+
+ donde establecemos 
+\begin_inset Formula $i_{0}=50$
+\end_inset
+
+.
+ Y los resultados obtenidos para este caso se ven en fig 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+~
+\backslash
+ref{fig:fig4}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+bla bla bla analissis analisis
+\end_layout
+
+\begin_layout Section
+DISCUSIÓN
+\end_layout
+
+\begin_layout Section
+CONCLUSIONES
+\end_layout
+
+\begin_layout Section
+AGRADECIMIENTOS
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "ref"
+options "apsrev4-2"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+includegraphics[width=0.5
+\backslash
+textwidth]{graficos/ejercicio_3.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+put(-240,140){
+\backslash
+bf a)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+includegraphics[width=0.5
+\backslash
+textwidth]{graficos/ejercicio_4.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+put(-240,140){
+\backslash
+bf b)}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+caption{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+label{fig:fig1}
+\end_layout
+
+\begin_layout Plain Layout
+
+    Comparación entre dos imágenes.
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\backslash
+bf a)} Descripción de la primera imagen.
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\backslash
+bf b)} Descripción de la segunda imagen.
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+includegraphics[width=0.90
+\backslash
+textwidth]{graficos/ejercicio_5.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+caption{Gráfico 1:
+ Nombre o descripción del gráfico 5.}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+label{fig:fig2}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+includegraphics[width=0.90
+\backslash
+textwidth]{graficos/ejercicio_6.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+caption{Gráfico 1:
+ Nombre o descripción del gráfico 6.}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+label{fig:fig3}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+includegraphics[width=0.9
+\backslash
+textwidth]{graficos/ejercicio_7.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+caption{Gráfico 1:
+ Nombre o descripción del gráfico 7.}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+label{fig:fig4}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
